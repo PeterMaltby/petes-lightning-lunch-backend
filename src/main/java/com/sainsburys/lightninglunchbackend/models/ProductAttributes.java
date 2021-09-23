@@ -3,6 +3,7 @@ package com.sainsburys.lightninglunchbackend.models;
 public class ProductAttributes {
     private String description;
     private String name;
+    private String partnumber;
     private String brand;
     private ProductPrice price;
 
@@ -20,6 +21,14 @@ public class ProductAttributes {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPartnumber() {
+        return partnumber;
+    }
+
+    public void setPartnumber(String partnumber) {
+        this.partnumber = partnumber;
     }
 
     public String getBrand() {
