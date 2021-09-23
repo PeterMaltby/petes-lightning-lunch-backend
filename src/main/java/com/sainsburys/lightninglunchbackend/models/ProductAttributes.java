@@ -23,14 +23,6 @@ public class ProductAttributes {
         this.name = name;
     }
 
-    public String getPartnumber() {
-        return partNumber;
-    }
-
-    public void setPartnumber(String partnumber) {
-        this.partNumber = partnumber;
-    }
-
     public String getBrand() {
         return brand;
     }
@@ -45,5 +37,13 @@ public class ProductAttributes {
 
     public void setPrice(ProductPrice price) {
         this.price = price;
+    }
+
+    public String getPartNumber() {
+        return partNumber;
+    }
+
+    public void setPartNumber(String partNumber) {
+        this.partNumber = partNumber;
     }
 }
