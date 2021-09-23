@@ -27,11 +27,12 @@ public class ProductService {
         } catch (IOException e) {
             logger.warning("Products not loaded!" + e);
         }
+        System.out.println(getProduct("7798851").getAttributes().getName());
     }
 
     public Product getProduct(String productId) {
         for (Product product : products) {
-            if (productId==product.getId()) return product;
+            if (productId.equals(product.getId())) return product;
         }
         System.out.println("PRODUCT NOT FOUND");
         return null;
