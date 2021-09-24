@@ -1,5 +1,7 @@
 package com.sainsburys.lightninglunchbackend.controllers;
 
+import com.sainsburys.lightninglunchbackend.exceptions.ProductNotFoundException;
+import com.sainsburys.lightninglunchbackend.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,8 +17,14 @@ public class ProductController {
         return ResponseEntity.ok("Hi there!");
     }*/
 
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
     @GetMapping("{productId}")
-    public ResponseEntity<?> getProductDetails(@PathVariable("productId") String productId) {
-        return ResponseEntity.ok(productId);
+    public ResponseEntity<?> getProductDetails(@PathVariable("productId") String productId) throws ProductNotFoundException {
+        return ResponseEntity.ok(productService.getProduct(productId));
     }
 }

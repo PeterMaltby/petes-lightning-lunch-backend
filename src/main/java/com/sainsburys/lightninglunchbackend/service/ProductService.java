@@ -2,6 +2,7 @@ package com.sainsburys.lightninglunchbackend.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sainsburys.lightninglunchbackend.exceptions.ProductNotFoundException;
 import com.sainsburys.lightninglunchbackend.models.Product;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class ProductService {
     private List<Product> products = new ArrayList<>();
 
     @PostConstruct
-    public void loadData() {
+    public void loadData() throws ProductNotFoundException {
         ObjectMapper mapper = new ObjectMapper();
         try {
             products = mapper.readValue(getClass().getResourceAsStream("/products.json"), new TypeReference<>() {
@@ -30,11 +31,12 @@ public class ProductService {
         System.out.println(getProduct("7798851").getAttributes().getName());
     }
 
-    public Product getProduct(String productId) {
+    public Product getProduct(String productId) throws ProductNotFoundException {
         for (Product product : products) {
             if (productId.equals(product.getId())) return product;
         }
+
         System.out.println("PRODUCT NOT FOUND");
-        return null;
+        throw new ProductNotFoundException();
     }
 }
