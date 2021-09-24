@@ -1,5 +1,6 @@
 package com.sainsburys.lightninglunchbackend.service;
 
+import com.sainsburys.lightninglunchbackend.exceptions.ProductNotFoundException;
 import com.sainsburys.lightninglunchbackend.models.Product;
 import org.springframework.stereotype.Service;
 
