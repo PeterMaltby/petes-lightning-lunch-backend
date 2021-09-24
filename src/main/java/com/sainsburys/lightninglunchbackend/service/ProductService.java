@@ -39,4 +39,9 @@ public class ProductService {
         System.out.println("PRODUCT NOT FOUND");
         throw new ProductNotFoundException();
     }
+
+    public List<Product> getAllProducts() {
+        return products;
+    }
 }
+
