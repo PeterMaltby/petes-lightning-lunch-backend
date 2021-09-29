@@ -29,7 +29,7 @@ public class SearchService {
                 selectedProducts.add(product);
                 continue;
             }
-            if (product.getAttributes().getName().equalsIgnoreCase(searchterm)) {
+            if (product.getAttributes().getName().toLowerCase().contains(searchterm.toLowerCase())) {
                 selectedProducts.add(product);
                 continue;
             }
